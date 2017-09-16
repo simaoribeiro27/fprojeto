@@ -1,0 +1,42 @@
+global
+npm install -g generator-keystone
+npm install -g yo
+
+in the folder
+yo keystone
+configure in hbs, blog y,  directorie n
+npm install express --save
+
+node keystone
+to start
+
+and in init put mongo conection
+
+
+CLOUDINARY_URL=cloudinary://111142322778838:3Uio4_GVJ2Ax4JAR4Wc2ddrTqhg@dcyyhswoy
+
+API Secret:	
+3Uio4_GVJ2Ax4JAR4Wc2ddrTqhg
+
+api key
+111142322778838
+
+
+module.exports = {
+    googleAuth: {
+        clientID: '122247591538-jut7ak75gtm1uuc6efp6i1cdpkrkoehd.apps.googleusercontent.com',
+        clientSecret: 'cpDCXw7FAKsdxfmZDpjuIW3t',
+        callbackURL: 'http://localhost:3000/auth/google/callback',
+    },
+
+};
+
+
+COOKIE_SECRET=f504c1de620eaed8a36989c9d4dc1948ac51d201cf23a1a9d748cedbcb0425345355fd33368c28ff92cd67ebc01c8aa1c1c8f07b674775b1b4d7aa1e371e391a
+CLOUDINARY_URL=cloudinary://333779167276662:_8jbSi9FB3sWYrfimcl8VKh34rI@keystone-demo
+MONGO_URI=mongodb://alfa:alfa1963@ds159880.mlab.com:59880/bdviagens
+
+GOOGLE_BROWSER_KEY=AIzaSyDyxAuCPI7bwygukAwYgIJRNVr-Bvvjy7w
+GOOGLE_SERVER_KEY=AIzaSyDyxAuCPI7bwygukAwYgIJRNVr-Bvvjy7w
+
+

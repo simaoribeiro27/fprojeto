@@ -1,0 +1,27 @@
+extends ../layouts/default
+
+block content
+	.container: .jumbotron2 
+		h1 Welcome
+		br 
+		p This is your new TripsCms website.
+		br 
+		br 
+		p
+			| Request an account via email.
+		p Visit the <a href='#' target='_blank'>Getting Started</a> guide to learn how to customise it.
+		br
+		br
+		hr
+		if user && user.canAccessKeystone
+			p
+				a(href='/keystone/signin').btn.btn-lg.btn-primary Open the Admin UI
+				
+		else
+			p
+				a(href='/keystone/signin', style='margin-right: 10px').btn.btn-lg.btn-primary Sign in
+				|  to use the Admin UI.
+		hr
+		br
+		br
+		p Remember to respect the roles and ........

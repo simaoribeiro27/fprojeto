@@ -1,0 +1,50 @@
+extends ../layouts/default
+
+block content
+	.container
+		article
+			p: a(href='/blog') &larr; back to the trip
+			hr
+			if !data.post
+				h2 Invalid Moment.
+			else
+				header
+					h1= data.post.title
+					h5 Posted 
+						if data.post.publishedDate
+							| on #{data.post._.publishedDate.format('MMMM Do, YYYY')} 
+						if data.post.categories && data.post.categories.length
+							| in 
+							each cat, cat_i in data.post.categories
+								a(href='/blog/' + cat.key)= cat.name
+								if cat_i < data.post.categories.length - 1
+									| , 
+								else
+									|  
+						if data.post.author
+							| by #{data.post.author.name.first}
+				.post
+					if data.post.image.exists
+						.image-wrap: img(src=data.post._.image.fit(1170)).img-responsive
+						p
+					!= data.post.content.full
+
+block content
+	.container
+		if enquirySubmitted
+			h3 Thanks for your vote.
+		else
+			.row: .col-sm-8.col-md-6
+				form(method='post')
+					input(type='hidden', name='action', value='contact')
+					.form-group(class=validationErrors.enquiryType ? 'has-error' : null)
+						label What do you think?
+						select(name='enquiryType').form-control
+							option(value='') (select one)
+							each type in enquiryTypes
+								option(value=type.value, selected=formData.enquiryType == type.value)= type.label
+					.form-group(class=validationErrors.message ? 'has-error' : null)
+						label Message
+						textarea(name='message', placeholder='Leave us a message...' rows=4).form-control= formData.message
+					.form-actions
+						button(type='submit').btn.btn-primary Send

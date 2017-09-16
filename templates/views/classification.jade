@@ -1,0 +1,18 @@
+extends ../layouts/default
+
+	
+block content
+	.container
+		if classificationSubmitted
+			h3 Thanks for your vote.
+		else
+			.row: .col-sm-8.col-md-6
+				form(method='post')
+					input(type='hidden', name='action', value='classific')
+						label What is your option?
+						select(name='classificationType').form-control
+							option(value='') (select one)
+							each type in classificationTypes
+								option(value=type.value, selected=formData.classificationType == type.value)= type.label
+					.form-actions
+						button(type='submit').btn.btn-primary Send
